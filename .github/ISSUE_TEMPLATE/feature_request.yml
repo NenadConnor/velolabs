@@ -1,0 +1,23 @@
+name: Feature request
+description: Propose a bounded product or engineering capability.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Proposed behavior
+      description: State inputs, outputs, units, failure behavior, and engineering validity limits.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation approach
+      description: Describe analytical, reference, or physical benchmarks that would establish correctness.

@@ -1,0 +1,38 @@
+name: Bug report
+description: Report reproducible application, CAD, or solver behavior.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: Include exact dimensions, units, and intended motion or load where relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include the visible error and whether geometry, motion, export, or simulation was involved.
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Ollama model
+      placeholder: glm-5.3-flash:cloud
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Remove credentials and private/proprietary design data.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data check
+      options:
+        - label: I removed credentials and confidential design information.
+          required: true
