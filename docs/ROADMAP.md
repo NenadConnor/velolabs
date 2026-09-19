@@ -1,5 +1,11 @@
 # Roadmap
 
+## Aether milestones
+
+- Milestone 1: cold-plate deterministic foundation implemented locally: strict specifications, parallel-channel B-Rep adapter, laminar reduced-order model, constraint evidence, bounded search, reports and workspace entry point. Validation is analytical and software-only.
+- Milestone 2 (not implemented): a high-fidelity conjugate thermal/fluid solver adapter, explicit headers/boundary conditions, mesh convergence, validated benchmarks and reproducible dataset generation. No ML training or The Well download belongs to Milestone 1.
+- Later: physical-test linkage, quantified discrepancy and carefully validated learned surrogates; additional domains only with their own validity contracts.
+
 ## Alpha hardening
 
 - Add cancellable jobs, artifact cleanup, disk quotas, and structured logs.

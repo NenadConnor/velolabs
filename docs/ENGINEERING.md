@@ -1,5 +1,9 @@
 # Engineering interpretation
 
+## Aether cold-plate estimates
+
+Aether adds a separate laminar rectangular-duct reduced-order model, not CFD or a general thermal solver. Its representative plate temperature is an idealized isothermal-wall network; local device hot spots and total system pressure are not evaluated. Correlation validity gates can withhold estimates. A model-feasible result does not imply manufacturing or physical validation. See [AETHER_COLD_PLATE.md](AETHER_COLD_PLATE.md) for equations, property assumptions, application gates and omitted effects. The single-part FEA scope below is unchanged.
+
 ## Geometry
 
 The CAD kernel produces boundary-representation solids and STEP files. A geometry pass means each requested part became one connected, non-empty, kernel-valid solid. It does not establish dimensional tolerance, surface finish, material availability, fastener selection, assembly sequence, tool access, printability, machinability, or regulatory compliance.

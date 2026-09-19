@@ -53,16 +53,18 @@ When revising an existing design return the ENTIRE revised design with stable pa
 Never claim the CAD model is ready for manufacturing or structurally verified. No markdown fences, no executable code.
 Schema: ''' + json.dumps(Design.model_json_schema())
 
-async def chat(messages, model):
+async def chat(messages, model, response_schema=Design):
     headers = {}
     if os.environ.get('OLLAMA_API_KEY'): headers['Authorization'] = 'Bearer '+os.environ['OLLAMA_API_KEY']
     async with httpx.AsyncClient(timeout=240) as client:
+        if response_schema is not Design:
+            messages = [*messages, {'role':'system','content':'Required JSON schema: '+json.dumps(response_schema.model_json_schema())}]
         response = await client.post(OLLAMA+'/api/chat',json={'model':model,'messages':messages,'stream':False,'options':{'temperature':0.15}},headers=headers)
         if response.status_code == 401: raise ValueError('Ollama needs sign-in before using this cloud model.')
         if response.status_code >= 400: raise ValueError('Ollama: '+response.text[:400])
         content = response.json().get('message',{}).get('content','').strip()
     if content.startswith('```'): content = content.split('\n',1)[1].rsplit('```',1)[0].strip()
-    return Design.model_validate_json(content)
+    return response_schema.model_validate_json(content)
 
 def build(design, directory):
     directory.mkdir(parents=True,exist_ok=True)
@@ -112,6 +114,10 @@ def new_job():
                 del jobs[key]
                 break
     return job_id
+
+from aether.api import create_router
+app.include_router(create_router(jobs=jobs, new_job=new_job, launch=launch, gate=gate,
+                                 build=build, data=DATA, chat=chat))
 
 @app.get('/health')
 async def health():

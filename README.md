@@ -16,6 +16,8 @@ For a clean installation, follow [docs/SETUP.md](docs/SETUP.md). For the product
 
 ## What works
 
+- **Aether Cold Plate CEM v0.1**: bounded straight-channel geometry, laminar reduced-order thermal/hydraulic estimates, explicit validity gates, deterministic optimization, STEP and JSON reports. Open **Aether CEM** in the workspace. This is not CFD or physical validation; see [Aether](docs/AETHER.md) and [cold-plate scope](docs/AETHER_COLD_PLATE.md).
+
 - Real prompt generation and conversational revision through Ollama `/api/chat`.
 - Schema-validated CAD plans: boxes, cylinders, spheres, cones, polygon extrusions, additions and cuts; up to 24 distinct parts and 160 features. Arbitrary AI-generated Python is never executed.
 - Connected-solid checks, actual STEP export, nominal dimensions, part selection/hiding, parent-child transforms, revolute and slider joint previews.

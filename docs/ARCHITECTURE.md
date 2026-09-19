@@ -1,5 +1,9 @@
 # Architecture
 
+## Aether domain extension
+
+`engine/aether/` adds an independent specification → geometry adapter → reduced-order evaluator → constraints → optimization → report loop. `aether/api.py` injects the existing job queue, semaphore, planner transport and CAD builder; it does not contain engineering equations. The original kernel and FEA implementation remain unchanged. `app/aether-panel.tsx` provides the workspace entry point and passes built meshes into the existing viewer. See [AETHER.md](AETHER.md) for contracts and trust boundaries.
+
 ## Components
 
 ```mermaid

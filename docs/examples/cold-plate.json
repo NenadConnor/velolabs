@@ -1,0 +1,67 @@
+{
+  "geometry": {
+    "length_mm": 200.0,
+    "width_mm": 60.0,
+    "thickness_mm": 8.0,
+    "base_mm": 2.0,
+    "minimum_cover_mm": 2.0,
+    "channel_count": 8,
+    "channel_width_mm": 2.0,
+    "channel_height_mm": 2.0,
+    "rib_mm": 2.0
+  },
+  "thermal": {
+    "heat_w": 10.0,
+    "footprint_length_mm": 200.0,
+    "footprint_width_mm": 60.0,
+    "inlet_c": 20.0,
+    "maximum_temperature_c": 60.0
+  },
+  "fluid": {
+    "coolant": "water",
+    "volumetric_flow_l_min": 0.02,
+    "mass_flow_kg_s": null,
+    "density_kg_m3": 998.2,
+    "viscosity_pa_s": 0.001002,
+    "conductivity_w_mk": 0.598,
+    "specific_heat_j_kgk": 4182.0,
+    "property_temperature_c": 20.0,
+    "property_source": "Illustrative liquid water at 20 C; user must confirm"
+  },
+  "material": {
+    "name": "Illustrative aluminum",
+    "conductivity_w_mk": 167.0,
+    "density_kg_m3": 2700.0
+  },
+  "limits": {
+    "minimum_wall_mm": 1.0,
+    "minimum_channel_mm": 0.5,
+    "maximum_length_mm": 500.0,
+    "maximum_width_mm": 500.0,
+    "maximum_thickness_mm": 100.0,
+    "maximum_channel_pressure_drop_pa": 10000.0,
+    "process": "unspecified"
+  },
+  "optimization": {
+    "bounds": {
+      "channel_count": {
+        "minimum": 4.0,
+        "maximum": 12.0
+      },
+      "channel_width_mm": {
+        "minimum": 1.0,
+        "maximum": 3.0
+      },
+      "channel_height_mm": {
+        "minimum": 1.0,
+        "maximum": 3.0
+      },
+      "rib_mm": {
+        "minimum": 1.0,
+        "maximum": 2.0
+      }
+    },
+    "maximum_evaluations": 40
+  },
+  "assumptions": []
+}

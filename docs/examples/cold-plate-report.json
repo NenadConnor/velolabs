@@ -1,0 +1,317 @@
+{
+  "software": "aether-cold-plate/0.1.0",
+  "report_schema_version": 1,
+  "timestamp": "2026-09-19T09:53:49.737250+00:00",
+  "input_sha256": "35966c152709eb3e47feca04698fdde9d44ac04dcb2c4cd36ad7e4c367120854",
+  "input_requirements": {
+    "geometry": {
+      "length_mm": 200.0,
+      "width_mm": 60.0,
+      "thickness_mm": 8.0,
+      "base_mm": 2.0,
+      "minimum_cover_mm": 2.0,
+      "channel_count": 8,
+      "channel_width_mm": 2.0,
+      "channel_height_mm": 2.0,
+      "rib_mm": 2.0
+    },
+    "thermal": {
+      "heat_w": 10.0,
+      "footprint_length_mm": 200.0,
+      "footprint_width_mm": 60.0,
+      "inlet_c": 20.0,
+      "maximum_temperature_c": 60.0
+    },
+    "fluid": {
+      "coolant": "water",
+      "volumetric_flow_l_min": 0.02,
+      "mass_flow_kg_s": null,
+      "density_kg_m3": 998.2,
+      "viscosity_pa_s": 0.001002,
+      "conductivity_w_mk": 0.598,
+      "specific_heat_j_kgk": 4182.0,
+      "property_temperature_c": 20.0,
+      "property_source": "Illustrative liquid water at 20 C; user must confirm"
+    },
+    "material": {
+      "name": "Illustrative aluminum",
+      "conductivity_w_mk": 167.0,
+      "density_kg_m3": 2700.0
+    },
+    "limits": {
+      "minimum_wall_mm": 1.0,
+      "minimum_channel_mm": 0.5,
+      "maximum_length_mm": 500.0,
+      "maximum_width_mm": 500.0,
+      "maximum_thickness_mm": 100.0,
+      "maximum_channel_pressure_drop_pa": 10000.0,
+      "process": "unspecified"
+    },
+    "optimization": {
+      "bounds": {
+        "channel_count": {
+          "minimum": 4.0,
+          "maximum": 12.0
+        },
+        "channel_width_mm": {
+          "minimum": 1.0,
+          "maximum": 3.0
+        },
+        "channel_height_mm": {
+          "minimum": 1.0,
+          "maximum": 3.0
+        },
+        "rib_mm": {
+          "minimum": 1.0,
+          "maximum": 2.0
+        }
+      },
+      "maximum_evaluations": 40
+    },
+    "assumptions": []
+  },
+  "selected_design_parameters": {
+    "length_mm": 200.0,
+    "width_mm": 60.0,
+    "thickness_mm": 8.0,
+    "base_mm": 2.0,
+    "minimum_cover_mm": 2.0,
+    "channel_count": 8,
+    "channel_width_mm": 2.0,
+    "channel_height_mm": 2.0,
+    "rib_mm": 2.0
+  },
+  "geometry_dimensions_mm": {
+    "length_mm": 200.0,
+    "width_mm": 60.0,
+    "thickness_mm": 8.0,
+    "base_mm": 2.0,
+    "minimum_cover_mm": 2.0,
+    "channel_count": 8,
+    "channel_width_mm": 2.0,
+    "channel_height_mm": 2.0,
+    "rib_mm": 2.0,
+    "actual_cover_mm": 4.0,
+    "side_wall_mm": 15.0
+  },
+  "material_assumptions": {
+    "name": "Illustrative aluminum",
+    "conductivity_w_mk": 167.0,
+    "density_kg_m3": 2700.0
+  },
+  "coolant_properties": {
+    "coolant": "water",
+    "volumetric_flow_l_min": 0.02,
+    "mass_flow_kg_s": null,
+    "density_kg_m3": 998.2,
+    "viscosity_pa_s": 0.001002,
+    "conductivity_w_mk": 0.598,
+    "specific_heat_j_kgk": 4182.0,
+    "property_temperature_c": 20.0,
+    "property_source": "Illustrative liquid water at 20 C; user must confirm"
+  },
+  "physics": {
+    "velocity_m_s": 0.010416666666666668,
+    "hydraulic_diameter_m": 0.002,
+    "mass_flow_kg_s": 0.00033273333333333336,
+    "reynolds": 20.754324683965407,
+    "prandtl": 7.0072976588628775,
+    "regime": "laminar",
+    "darcy_friction_factor": 2.7424838373071534,
+    "channel_pressure_drop_pa": 14.852145000000007,
+    "total_pressure_drop_pa": null,
+    "coolant_rise_k": 7.186536914221782,
+    "coolant_outlet_c": 27.186536914221783,
+    "nusselt": 2.978695,
+    "heat_transfer_w_m2k": 890.629805,
+    "conduction_resistance_k_w": 0.000998003992015968,
+    "thermal_resistance_k_w": 0.7198505781314517,
+    "representative_temperature_c": 27.198505781314516,
+    "mass_kg": 0.24192000000000002,
+    "correlation_valid": true,
+    "equations": {
+      "flow": "v=Vdot/(N*w*h); Dh=2*w*h/(w+h); Re=rho*v*Dh/mu; Pr=mu*cp/k",
+      "friction": "Darcy f=96/Re*(1-1.3553a+1.9467a²-1.7012a³+0.9564a⁴-0.2537a⁵)",
+      "pressure": "dp=f*(L/Dh)*rho*v²/2; one parallel passage (not multiplied by N)",
+      "thermal": "Nu=7.541*(1-2.610a+4.970a²-5.119a³+2.702a⁴-0.548a⁵); h=Nu*k/Dh",
+      "energy": "dT=Q/(mdot*cp); Tout=Tin+dT",
+      "resistance": "Rb=base/(km*footprint); C=mdot*cp; A=N*2*(w+h)*L; R=Rb+1/[C*(1-exp(-h*A/C))]; T=Tin+Q*R"
+    },
+    "validity": [
+      "Shah–London smooth rectangular duct, 0<a<=1, Re<2300; constant wall temperature.",
+      "Application gates: Pe>=100; 0.05*Re*Dh*max(1,Pr)<=0.1*L; property mismatch<=10 K.",
+      "Liquid 5–80 C; Newtonian single phase; equal flow through identical channels.",
+      "Entrance length and temperature gates are conservative application policies, not correlation error bounds."
+    ],
+    "warnings": [
+      "Channel pressure drop excludes headers and fittings; total system pressure drop is not evaluated.",
+      "Representative plate temperature is an idealized isothermal-wall estimate, not a local device maximum."
+    ],
+    "assumptions": [
+      "All heat enters coolant; no environmental losses.",
+      "All four channel walls share one temperature; ribs/cover perfectly redistribute heat.",
+      "Base conduction is one dimensional over the centered footprint; no contact/spreading resistance.",
+      "Constant user-confirmed material and fluid properties."
+    ],
+    "unsupported_physics": [
+      "CFD and conjugate heat transfer",
+      "Manifolds, ports, bends, minor losses and flow maldistribution",
+      "Boiling, freezing, temperature-dependent properties and buoyancy",
+      "Spreading/contact resistance, fin efficiency and local device hot spots",
+      "Roughness, fouling, turbulence, entrance-flow corrections",
+      "Cover joints, leakage, fatigue, pressure-vessel or manufacturing certification"
+    ]
+  },
+  "constraints": [
+    {
+      "name": "Representative plate temperature",
+      "value": 27.198505781314516,
+      "limit": 60.0,
+      "unit": "C",
+      "status": "PASS",
+      "margin": 32.801494218685484,
+      "explanation": "Idealized model estimate only; local device maximum not resolved."
+    },
+    {
+      "name": "Channel pressure drop",
+      "value": 14.852145000000007,
+      "limit": 10000.0,
+      "unit": "Pa",
+      "status": "PASS",
+      "margin": 9985.147855,
+      "explanation": "Straight passage friction only. No system pressure-drop claim."
+    },
+    {
+      "name": "Minimum wall",
+      "value": 2.0,
+      "limit": 1.0,
+      "unit": "mm",
+      "status": "PASS",
+      "margin": 1.0,
+      "explanation": "Algebraic wall envelope check."
+    },
+    {
+      "name": "Channel width",
+      "value": 2.0,
+      "limit": 0.5,
+      "unit": "mm",
+      "status": "PASS",
+      "margin": 1.5,
+      "explanation": "Nominal width."
+    },
+    {
+      "name": "Channel height",
+      "value": 2.0,
+      "limit": 0.5,
+      "unit": "mm",
+      "status": "PASS",
+      "margin": 1.5,
+      "explanation": "Nominal height."
+    },
+    {
+      "name": "Requested cover",
+      "value": 4.0,
+      "limit": 2.0,
+      "unit": "mm",
+      "status": "PASS",
+      "margin": 2.0,
+      "explanation": "Actual top cover thickness."
+    },
+    {
+      "name": "Envelope length",
+      "value": 200.0,
+      "limit": 500.0,
+      "unit": "mm",
+      "status": "PASS",
+      "margin": 300.0,
+      "explanation": "Plate envelope."
+    },
+    {
+      "name": "Envelope width",
+      "value": 60.0,
+      "limit": 500.0,
+      "unit": "mm",
+      "status": "PASS",
+      "margin": 440.0,
+      "explanation": "Plate envelope."
+    },
+    {
+      "name": "Envelope thickness",
+      "value": 8.0,
+      "limit": 100.0,
+      "unit": "mm",
+      "status": "PASS",
+      "margin": 92.0,
+      "explanation": "Plate envelope."
+    },
+    {
+      "name": "Channel containment",
+      "value": 15.0,
+      "limit": 1.0,
+      "unit": "mm",
+      "status": "PASS",
+      "margin": 14.0,
+      "explanation": "Passages open intentionally at X ends."
+    },
+    {
+      "name": "Correlation validity",
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "status": "PASS",
+      "margin": null,
+      "explanation": "Shah–London smooth rectangular duct, 0<a<=1, Re<2300; constant wall temperature.; Application gates: Pe>=100; 0.05*Re*Dh*max(1,Pr)<=0.1*L; property mismatch<=10 K.; Liquid 5–80 C; Newtonian single phase; equal flow through identical channels.; Entrance length and temperature gates are conservative application policies, not correlation error bounds."
+    },
+    {
+      "name": "Connected B-Rep solid",
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "status": "NOT_EVALUATED",
+      "margin": null,
+      "explanation": "Not checked until a CAD build succeeds."
+    },
+    {
+      "name": "Total system pressure drop",
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "status": "NOT_EVALUATED",
+      "margin": null,
+      "explanation": "External manifolds and fittings are not modeled."
+    },
+    {
+      "name": "Device maximum temperature",
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "status": "NOT_EVALUATED",
+      "margin": null,
+      "explanation": "Local spreading, contact resistance and hot spots are not modeled."
+    },
+    {
+      "name": "Manufacturing process",
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "status": "NOT_EVALUATED",
+      "margin": null,
+      "explanation": "unspecified: tool access, bonding, seals, print support and tolerances are not verified."
+    },
+    {
+      "name": "Physical validation",
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "status": "NOT_EVALUATED",
+      "margin": null,
+      "explanation": "No prototype measurements exist for this design."
+    }
+  ],
+  "model_feasible": true,
+  "geometry_checked": false,
+  "physical_validation": false,
+  "high_fidelity_simulation": false,
+  "optimizer": null,
+  "validation_status": "Analytical/schema checks only; CAD not built"
+}

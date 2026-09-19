@@ -1,6 +1,6 @@
 {
   "name": "velolabs",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "private": true,
   "engines": {
     "node": ">=22.13.0"
@@ -13,6 +13,7 @@
     "lint": "eslint app components hooks lib db scripts --max-warnings 0",
     "test:types": "tsc --noEmit",
     "test:engine": "python engine/test_engine.py",
+    "test:aether": "python -m unittest discover -s engine/aether/validation -t engine -v",
     "check": "npm run test:types && npm run lint && npm run build"
   },
   "dependencies": {

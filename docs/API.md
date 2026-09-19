@@ -1,5 +1,9 @@
 # Engine API
 
+## Aether cold plate
+
+The `/aether/cold-plate` router adds `GET /defaults`, `POST /validate`, and queued `POST /plan`, `/evaluate`, `/optimize`, `/build`. Evaluate/optimize/build consume only validated `ColdPlateSpecification` data. Plan returns reviewable structured inputs through the existing Ollama transport. Jobs share the existing limits and authentication. Build returns `{cad, report}` and exports `engineering_report.json` through the existing file route. See [AETHER_COLD_PLATE.md](AETHER_COLD_PLATE.md) for complete contracts, sample inputs and explicit numerical limitations.
+
 The default base URL is `http://127.0.0.1:8765`. All responses use JSON except file downloads. When `VELOLABS_TOKEN` is configured, send it in `X-Velolabs-Token`.
 
 ## Health
